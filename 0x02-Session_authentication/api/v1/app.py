@@ -31,25 +31,25 @@ elif AUTH_TYPE == "session_db_auth":
     auth = SessionDBAuth()
 
 
-@ app.errorhandler(404)
+@app.errorhandler(404)
 def not_found(error) -> str:
     """ Not found handler """
     return jsonify({"error": "Not found"}), 404
 
 
-@ app.errorhandler(401)
+@app.errorhandler(401)
 def unauthorized_error(error) -> str:
     """ Unauthorized handler """
     return jsonify({"error": "Unauthorized"}), 401
 
 
-@ app.errorhandler(403)
+@app.errorhandler(403)
 def forbidden_error(error) -> str:
     """ Forbidden handler """
     return jsonify({"error": "Forbidden"}), 403
 
 
-@ app.before_request
+@app.before_request
 def before_request() -> str:
     """ Before Request Handler
     Requests Validation
@@ -74,6 +74,7 @@ def before_request() -> str:
         abort(403)
 
     request.current_user = current_user
+    # Assign current_user to request.current_user
 
 
 if __name__ == "__main__":
