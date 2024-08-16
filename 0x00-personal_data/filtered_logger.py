@@ -4,7 +4,7 @@ import re
 from typing import List
 import logging
 import mysql.connector
-import os
+from os import environ
 
 
 class RedactingFormatter(logging.Formatter):
